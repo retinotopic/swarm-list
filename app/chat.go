@@ -84,7 +84,9 @@ type Chat struct {
 
 func NewChat(keyIdent, url string, maxMsgsOnPage int, debug bool, wft bool,
 	logger *log.Logger, testlogger *log.Logger) (chat *Chat) {
-
+	if logger == nil {
+		logger = log.Default()
+	}
 	c := &Chat{Logger: logger, TestLogger: testlogger,
 		url: url, keyIdent: keyIdent, IsDebug: debug, WaitForTest: wft}
 	c.App = tview.NewApplication()

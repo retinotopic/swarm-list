@@ -39,7 +39,7 @@ func (c *Chat) UI(cnt []list.Content, lists ...int) UIEvent {
 
 func (c *Chat) Send(prep any, funcname string, eventname string, tp int, trg ...int) SendEvent {
 	switch prep.(type) {
-	case Room, Message, User:
+	case *Room, *Message, *User:
 		break
 	default:
 		panic("This type is not implemented")
@@ -71,7 +71,7 @@ func (c *Chat) InitEvents() {
 	user := &User{}
 	c.EventMap = map[list.Content]EventExecer{
 		// UI events
-		Key("Events", ""): c.UI(Lst(), 2),
+		Key("Events", ""): c.UI(Lst(), 4),
 
 		Key("Menu", ""): c.UI(Lst("Create Duo Room", "true", "Create Group Room", "true",
 			"Unblock Users", "true", "Change Username", "true", "Change Privacy", "true",

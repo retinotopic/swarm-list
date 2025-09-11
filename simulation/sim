@@ -1,0 +1,84 @@
+FIND USER AND CREATE DUO ROOM
+Key: 258
+Key: 13
+Key: 259
+Key: 259
+Key: 258
+Key: 258
+Key: 258
+Key: 258
+Key: 258
+Key: 13
+Key: 259
+Key: 259
+Key: 259
+Key: 259
+@@@:    
+Key: 260
+Key: 260
+Key: 13
+Key: 260
+Key: 260
+Key: 258
+Key: 13
+Key: 259
+Key: 259
+Key: 13
+Key: 259
+Key: 259
+Key: 259
+Key: 13
+Key: 260
+Key: 13
+Key: 260
+Key: 260
+
+CREATE GROUP ROOM
+Key: 258
+Key: 13
+Key: 259
+Key: 259
+Key: 258
+Key: 13
+Key: 259
+Key: 259
+Key: 259
+$$$:    
+Key: 259
+###:    
+Key: 260
+Key: 260
+Key: 13
+Key: 260
+Key: 260
+
+SEND MESSAGE
+Key: 259
+$$$:    
+Key: 259
+Key: 259
+Key: 259
+###:    
+Key: 258
+Key: 13
+Key: 260
+Key: 260
+Key: 260
+
+ADD/DELETE TO/FROM GROUP
+Key: 258
+Key: 258
+Key: 13
+Key: 259
+Key: 259
+%%%: 258
+Key: 13
+Key: 259
+Key: 259
+Key: 259
+$$$:    
+Key: 260
+Key: 13
+Key: 260
+Key: 260
+

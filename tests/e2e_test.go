@@ -112,6 +112,7 @@ func Test_e2e(t *testing.T) {
 				}
 			}
 			if tcev != nil {
+				// tcell.NewEventKey(tcell.KeyRune,)
 				currChatInfo.ChatClient.Mtx.Lock()
 				key := currChatInfo.ChatClient.MainFlexNavigation(tcev)
 				prm := currChatInfo.ChatClient.MainFlex.GetItem(currChatInfo.ChatClient.NavState)
