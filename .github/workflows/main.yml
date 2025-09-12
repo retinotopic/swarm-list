@@ -1,0 +1,28 @@
+name: e2e
+
+on: [push]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      REDIS_DEBUG: "true"
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: "1.24.3"
+        cache: true
+
+    - name: Compose up
+      run: docker compose up --build -d --wait
+
+    - name: Run Go tests
+      working-directory: tests
+      run: go test . -v -count=1
