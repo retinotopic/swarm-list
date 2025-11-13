@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	"time"
-
+	lg "log"
 	"github.com/jackc/pgx/v5/stdlib"
 	"github.com/pressly/goose/v3"
 	db "github.com/retinotopic/GoChat/server/db/postgres"
@@ -32,14 +32,26 @@ func main() {
 		pgUser, pgPassword, pgHost, pgPort, pgDB, pgSSL,
 	)
 	vkoptions := valkey.ClientOption{
-		InitAddress: []string{os.Getenv("REDIS_HOST") + ":" + os.Getenv("REDIS_PORT")}}
+		InitAddress: []string{os.Getenv("REDIS_HOST") + ":" + os.Getenv("REDIS_PORT")},
+		RetryDelay: func(attempts int, cmd valkey.Completed, err error) time.Duration {
+			lg.Println(attempts)
+			if attempts >= 1000 {
+				return -1
+			}
+		    return 1 * time.Second
+		},
+	}
 
 	dbgrd := false
 	if os.Getenv("REDIS_DEBUG") == "true" {
 		dbgrd = true
 	}
 	limiter, err := valkeylimiter.NewRateLimiter(
-		valkeylimiter.RateLimiterOption{ClientOption: vkoptions, Window: time.Second * 1, Limit: 1})
+		valkeylimiter.RateLimiterOption{
+			ClientOption: vkoptions,
+			Window: time.Second * 1,
+			Limit: 1 })
+
 	if err != nil {
 		panic(err)
 	}
