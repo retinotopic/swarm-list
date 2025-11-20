@@ -103,10 +103,6 @@ secrets:
 networks:
   public:
   private:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.25.0.0/16
-# docker compose down; docker compose rm; docker network prune; REDIS_DEBUG="true" docker compose up --build
+
+# REDIS_DEBUG="true" docker compose up --build
 
