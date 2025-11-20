@@ -5,3 +5,6 @@ Experimental TUI toolkit based on [tview](https://github.com/rivo/tview). Everyt
 <p align="center" width="100%">
 <video src="https://github.com/user-attachments/assets/eb0b21a5-89b7-4961-99c6-3b60f38030db" width="80%" controls></video>
 </p>
+
+### Run:
+REDIS_DEBUG="true" docker compose up --build
